@@ -7,6 +7,15 @@ const target=new Date('2026-12-19T10:30:00+02:00').getTime();function countdown(
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.14});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const progress=document.querySelector('.progress span');let ticking=false;function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${max?scrollY/max*100:0}%`;ticking=false})}addEventListener('scroll',onScroll,{passive:true});onScroll();
 
+// Image layers provide the fixed-background look consistently on mobile browsers.
+const quotePhoto=document.querySelector('.quote>img');
+const rsvpSection=document.querySelector('.rsvp');
+const rsvpPhoto=document.createElement('img');
+rsvpPhoto.src='assets/img/_MG_0181.webp';rsvpPhoto.alt='';rsvpPhoto.loading='lazy';rsvpPhoto.setAttribute('aria-hidden','true');rsvpSection.prepend(rsvpPhoto);
+const fixedPhotos=[quotePhoto,rsvpPhoto];fixedPhotos.forEach(photo=>photo.classList.add('fixed-bg-photo'));
+function positionFixedPhotos(){fixedPhotos.forEach(photo=>{const section=photo.parentElement,rect=section.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)return;const travel=(innerHeight-rect.top)/(innerHeight+rect.height);photo.style.transform=`translate3d(0,${(travel-.5)*16}%,0) scale(1.04)`})}
+addEventListener('scroll',positionFixedPhotos,{passive:true});addEventListener('resize',positionFixedPhotos,{passive:true});positionFixedPhotos();
+
 // The invitation remains fully usable when the decorative 3D library is unavailable.
 const threeLoader=document.createElement('script');threeLoader.src='https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';threeLoader.defer=true;threeLoader.onload=()=>{initThreeScene();initSectionScenes()};document.head.appendChild(threeLoader);
 function initThreeScene(){
