@@ -15,3 +15,6 @@
 
 /* Cross-browser fixed-image layers */
 .quote,.rsvp{background-image:none;background-color:#0c0b09}.quote>img.fixed-bg-photo,.rsvp>img.fixed-bg-photo{display:block;position:absolute!important;z-index:0!important;inset:-14% 0 auto;width:100%;height:128%;object-fit:cover;object-position:center;will-change:transform;pointer-events:none}.quote .quote-shade{z-index:1}.quote blockquote{z-index:2}.rsvp:after{content:"";position:absolute;z-index:0;inset:0;background:linear-gradient(#0c0b0999,#0c0b09d9);pointer-events:none}.rsvp>img.fixed-bg-photo{opacity:.72}.rsvp>.rsvp-ring,.rsvp>.script,.rsvp>h2,.rsvp>.rsvp-intro,.rsvp>.contacts{z-index:2}
+
+/* Lucide icon sizing */
+.opening button>svg{width:37px;height:37px;padding:10px;border-radius:50%;background:var(--gold);stroke-width:1.6;transition:transform .3s}.opening button:hover>svg{transform:rotate(-8deg) scale(1.05)}.menu>svg{width:20px;height:20px;stroke-width:1.5}.hero-footer>svg{width:15px;height:15px;animation:bob 1.5s infinite}.marquee svg{width:17px;height:17px;color:var(--gold);stroke-width:1.4}.button span svg{width:15px;height:15px;stroke-width:1.7}.contacts a svg{width:13px;height:13px;color:var(--gold);stroke-width:1.8;margin-left:6px;vertical-align:-3px}

@@ -126,14 +126,15 @@
       <h1>Penny <em>&</em> Mandla</h1>
       <p class="opening-date">19 · 12 · 2026</p>
       <button id="enter" type="button">
-        <span>Open invitation</span><i>↗</i>
+        <span>Open invitation</span
+        ><i data-lucide="mail-open" aria-hidden="true"></i>
       </button>
     </div>
     <div class="progress" aria-hidden="true"><span></span></div>
     <header class="topbar">
       <a class="brand" href="#home">P <i>&</i> M</a
       ><button class="menu" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span>
+        <i data-lucide="menu" aria-hidden="true"></i>
       </button>
       <nav aria-label="Main navigation">
         <a href="#story">Our story</a><a href="#details">Details</a
@@ -159,7 +160,10 @@
             fetchpriority="high"
           />
         </div>
-        <div class="hero-footer"><span>Scroll to celebrate</span><b>↓</b></div>
+        <div class="hero-footer">
+          <span>Scroll to celebrate</span
+          ><i data-lucide="arrow-down" aria-hidden="true"></i>
+        </div>
       </section>
       <section class="intro section" id="story">
         <div class="intro-copy reveal">
@@ -194,9 +198,10 @@
       <section class="save-date">
         <div class="marquee" aria-hidden="true">
           <div>
-            <span>SAVE THE DATE</span><i>✦</i><span>SAVE THE DATE</span><i>✦</i
-            ><span>SAVE THE DATE</span><i>✦</i><span>SAVE THE DATE</span
-            ><i>✦</i>
+            <span>SAVE THE DATE</span><i data-lucide="sparkles"></i
+            ><span>SAVE THE DATE</span><i data-lucide="sparkles"></i
+            ><span>SAVE THE DATE</span><i data-lucide="sparkles"></i
+            ><span>SAVE THE DATE</span><i data-lucide="sparkles"></i>
           </div>
         </div>
         <div class="date-stage reveal">
@@ -246,7 +251,8 @@
               href="https://www.google.com/maps/dir/?api=1&destination=-25.0713615,29.4919796"
               target="_blank"
               rel="noopener"
-              >Open in Google Maps <span>↗</span></a
+              >Open in Google Maps
+              <span><i data-lucide="map-pin" aria-hidden="true"></i></span></a
             >
           </div>
         </article>
@@ -277,7 +283,8 @@
               href="https://www.google.com/maps/dir/?api=1&destination=-31.0108261,28.5487728"
               target="_blank"
               rel="noopener"
-              >Open in Google Maps <span>↗</span></a
+              >Open in Google Maps
+              <span><i data-lucide="map-pin" aria-hidden="true"></i></span></a
             >
           </div>
         </article>
@@ -488,14 +495,20 @@
           <article>
             <span>Bride's celebration</span>
             <h3>Pinah Thoka</h3>
-            <a href="tel:+27720840717">072 084 0717 <i>↗</i></a>
+            <a href="tel:+27720840717"
+              >072 084 0717 <i data-lucide="phone" aria-hidden="true"></i
+            ></a>
           </article>
           <article>
             <span>Groom's celebration</span>
             <h3>Andisiwe</h3>
-            <a href="tel:+27727676010">072 767 6010 <i>↗</i></a>
+            <a href="tel:+27727676010"
+              >072 767 6010 <i data-lucide="phone" aria-hidden="true"></i
+            ></a>
             <h3>Zola</h3>
-            <a href="tel:+27834374767">083 437 4767 <i>↗</i></a>
+            <a href="tel:+27834374767"
+              >083 437 4767 <i data-lucide="phone" aria-hidden="true"></i
+            ></a>
           </article>
         </div>
       </section>
@@ -505,6 +518,7 @@
       <p>19 & 22 December 2026</p>
       <span>Made with love for our favourite people.</span>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
