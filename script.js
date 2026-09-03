@@ -18,6 +18,25 @@ const fixedPhotos=[quotePhoto,rsvpPhoto];fixedPhotos.forEach(photo=>photo.classL
 function positionFixedPhotos(){fixedPhotos.forEach(photo=>{const section=photo.parentElement,rect=section.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)return;const travel=(innerHeight-rect.top)/(innerHeight+rect.height);photo.style.transform=`translate3d(0,${(travel-.5)*16}%,0) scale(1.04)`})}
 addEventListener('scroll',positionFixedPhotos,{passive:true});addEventListener('resize',positionFixedPhotos,{passive:true});positionFixedPhotos();
 
+// Subtle depth motion for editorial imagery and decorative details.
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const parallaxItems=reduceMotion?[]:[
+  {element:document.querySelector('.hero-photo'),speed:-18},
+  {element:document.querySelector('.sun'),speed:10},
+  {element:document.querySelector('.photo-back'),speed:-16},
+  {element:document.querySelector('.photo-front'),speed:12},
+  ...Array.from(document.querySelectorAll('.event-image img')).map((element,index)=>({element,speed:index%2?-14:14})),
+  ...Array.from(document.querySelectorAll('.look-orb')).map((element,index)=>({element,speed:index%2?9:-9}))
+].filter(item=>item.element);
+function updateParallax(){parallaxItems.forEach(({element,speed})=>{const host=element.closest('section')||element,rect=host.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)return;const center=rect.top+rect.height/2-innerHeight/2;const offset=Math.max(-1,Math.min(1,center/innerHeight))*speed;element.style.setProperty('--parallax-y',`${offset}px`)})}
+let parallaxTicking=false;function requestParallax(){if(parallaxTicking)return;parallaxTicking=true;requestAnimationFrame(()=>{updateParallax();parallaxTicking=false})}
+if(!reduceMotion){addEventListener('scroll',requestParallax,{passive:true});addEventListener('resize',requestParallax,{passive:true});updateParallax()}
+
+// Stagger related content as each composition enters the viewport.
+document.querySelectorAll('.event-copy,.look,.party-title,.contacts article').forEach(group=>{
+  Array.from(group.children).forEach((child,index)=>{child.style.setProperty('--stagger',`${Math.min(index*75,300)}ms`);child.classList.add('stagger-item')});
+});
+
 // The invitation remains fully usable when the decorative 3D library is unavailable.
 const threeLoader=document.createElement('script');threeLoader.src='https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';threeLoader.defer=true;threeLoader.onload=()=>{initThreeScene();initSectionScenes()};document.head.appendChild(threeLoader);
 function initThreeScene(){
