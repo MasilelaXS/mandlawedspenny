@@ -25,3 +25,6 @@
 
 /* Umendiso label and gift note */
 .event-name{margin:0 0 8px!important;color:var(--gold)!important;font-size:8px!important;font-weight:600;text-transform:uppercase;letter-spacing:.22em}.event-name+h3{margin-top:0}.gift-note{position:relative;overflow:hidden;text-align:center;background:linear-gradient(145deg,#eee7d8,#faf8f2 48%,#ddd1ba);isolation:isolate}.gift-note:before,.gift-note:after{content:"";position:absolute;z-index:-1;width:260px;height:260px;border:1px solid #b8955840;border-radius:50%}.gift-note:before{top:-150px;left:-120px}.gift-note:after{right:-130px;bottom:-160px}.gift-icon{width:68px;height:68px;margin:0 auto 25px;border:1px solid #b8955873;border-radius:50%;display:grid;place-items:center;color:var(--gold)}.gift-icon svg{width:25px;height:25px;stroke-width:1.3}.gift-note h2{font:400 clamp(44px,12vw,70px)/1 Italiana,serif;letter-spacing:-.04em;margin:0}.gift-note>p:last-child{max-width:540px;margin:24px auto 0;color:#69645c;font-size:12px;line-height:1.9}@media(min-width:760px){.gift-note{padding-block:130px}}
+
+/* Portrait-safe editorial framing */
+.photo img{object-position:center 18%}.photo-front img{object-position:center 28%}.filmstrip img{object-position:center 22%}.filmstrip figure:nth-child(3) img,.filmstrip figure:nth-child(4) img{object-position:center 16%}
