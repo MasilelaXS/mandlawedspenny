@@ -2,12 +2,12 @@
   padding-bottom: 0;
 }
 :root {
-  --black: #11100e;
-  --ivory: #f3efe6;
-  --paper: #faf8f2;
-  --gold: #b89558;
-  --sage: #5d6554;
-  --line: rgba(17, 16, 14, 0.15);
+  --black: #35261f;
+  --ivory: #f6eee9;
+  --paper: #fbf7f4;
+  --gold: #a98578;
+  --sage: #876b60;
+  --line: rgba(53, 38, 31, 0.15);
 }
 * {
   box-sizing: border-box;
@@ -57,7 +57,7 @@ a {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: #735b34;
+  background: #a98578;
   filter: blur(120px);
   opacity: 0.35;
   animation: breathe 3s ease-in-out infinite;
@@ -224,9 +224,9 @@ a {
   overflow: hidden;
   background: radial-gradient(
     circle at 65% 25%,
-    #706444 0,
-    #28261f 33%,
-    #12110f 72%
+    #a98578 0,
+    #62483d 33%,
+    #35261f 72%
   );
   color: white;
 }
@@ -975,11 +975,11 @@ footer span {
   display: none;
 }
 .quote-shade {
-  background: linear-gradient(180deg, #08070573, #0807058f);
+  background: linear-gradient(180deg, #35261f73, #35261f8f);
 }
 .rsvp {
   background-image:
-    linear-gradient(#0c0b09e8, #0c0b09f2), url("assets/img/_MG_0181.webp");
+    linear-gradient(#35261fe8, #35261ff2), url("assets/img/_MG_0181.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1197,7 +1197,7 @@ footer span {
 .quote,
 .rsvp {
   background-image: none;
-  background-color: #0c0b09;
+  background-color: var(--black);
 }
 .quote > img.fixed-bg-photo,
 .rsvp > img.fixed-bg-photo {
@@ -1223,7 +1223,7 @@ footer span {
   position: absolute;
   z-index: 0;
   inset: 0;
-  background: linear-gradient(#0c0b0999, #0c0b09d9);
+  background: linear-gradient(#35261f99, #35261fd9);
   pointer-events: none;
 }
 .rsvp > img.fixed-bg-photo {
