@@ -649,39 +649,79 @@ blockquote i {
 .looks {
   max-width: 980px;
   margin: auto;
+  border-top: 1px solid rgba(53, 38, 31, 0.14);
+  border-bottom: 1px solid rgba(53, 38, 31, 0.14);
+}
+.attire {
+  background: linear-gradient(180deg, #fbf7f4 0%, #f2e6e0 100%);
 }
 .look {
   position: relative;
   text-align: center;
   padding: 48px 15px;
   border-top: 1px solid var(--line);
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+.look:first-child {
+  border-top: 0;
+}
+.look::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin: 0 auto 18px;
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
 }
 .look > span {
+  color: #8d746a;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 8px;
+  font-weight: 600;
 }
 .look-orb {
-  width: 100px;
-  height: 100px;
+  width: 104px;
+  height: 104px;
   border-radius: 50%;
-  margin: 25px auto;
+  margin: 27px auto 25px;
   box-shadow:
     inset 0 0 0 8px #ffffff26,
-    0 12px 30px #00000024;
+    0 12px 30px rgba(53, 38, 31, 0.16);
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+.look:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.look:hover .look-orb {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow:
+    inset 0 0 0 8px #ffffff26,
+    0 18px 34px rgba(53, 38, 31, 0.2);
 }
 .look-orb.black {
-  background: radial-gradient(circle at 30% 25%, #555, #050505 60%);
+  background: radial-gradient(circle at 30% 25%, #6b554c, #211815 60%);
 }
 .look-orb.champagne {
-  background: radial-gradient(circle at 30% 25%, #f6e8c8, #ad884c 60%);
+  background: radial-gradient(circle at 30% 25%, #f1ddd2, #a98578 62%);
+  box-shadow:
+    inset 0 0 0 8px #ffffff40,
+    0 14px 32px rgba(126, 91, 78, 0.28);
 }
 .look-orb.traditional {
   background: repeating-conic-gradient(
-    #b89558 0 8deg,
-    #171511 8deg 16deg,
-    #8f3327 16deg 24deg
+    #a98578 0 8deg,
+    #35261f 8deg 16deg,
+    #9b5949 16deg 24deg
   );
+}
+.look.featured {
+  background: rgba(255, 255, 255, 0.34);
 }
 .look h3 {
   font:
@@ -692,7 +732,7 @@ blockquote i {
 .look p {
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: #777168;
+  color: #806b62;
   font-size: 7px;
 }
 .moments {
@@ -805,11 +845,29 @@ footer p {
   font-size: 8px;
   margin: 15px 0 25px;
 }
-footer span {
+footer span,
+.footer-credit {
   font:
     400 19px Parisienne,
     cursive;
   color: #aaa39a;
+}
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.footer-credit svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  stroke-width: 1.5;
+}
+.footer-credit:hover,
+.footer-credit:focus-visible {
+  color: var(--gold);
 }
 .reveal,
 .anim {
