@@ -428,6 +428,7 @@ a {
 }
 .marquee div {
   display: flex;
+  flex-shrink: 0;
   width: max-content;
   gap: 24px;
   align-items: center;
@@ -1429,7 +1430,6 @@ footer span,
 }
 .quote > img.fixed-bg-photo,
 .rsvp > img.fixed-bg-photo {
-  display: block;
   position: absolute !important;
   z-index: 0 !important;
   inset: -14% 0 auto;
@@ -1439,6 +1439,12 @@ footer span,
   object-position: center;
   will-change: transform;
   pointer-events: none;
+}
+.quote > img.fixed-bg-photo {
+  display: none;
+}
+.rsvp > img.fixed-bg-photo {
+  display: block;
 }
 .quote .quote-shade {
   z-index: 1;
