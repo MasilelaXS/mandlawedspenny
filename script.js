@@ -66,7 +66,7 @@ function initSectionScenes(){
   if(!window.THREE||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const configurations=[
     {selector:'.save-date',color:0xe4c98e,shape:'rings',count:120},
-    {selector:'.wedding-party',color:0xb89558,shape:'petals',count:150},
+    {selector:'.gift-note',color:0xb89558,shape:'petals',count:150},
     {selector:'.rsvp',color:0xdabf83,shape:'rings',count:100}
   ];
   const scenes=[];
