@@ -1013,6 +1013,19 @@ footer span,
     cursive;
   color: #aaa39a;
 }
+.footer-phone {
+  display: block;
+  margin: -10px 0 20px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.footer-phone:hover,
+.footer-phone:focus-visible {
+  color: var(--ivory);
+}
 .footer-credit {
   display: inline-flex;
   align-items: center;
