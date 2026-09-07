@@ -32,6 +32,13 @@ function updateParallax(){parallaxItems.forEach(({element,speed})=>{const host=e
 let parallaxTicking=false;function requestParallax(){if(parallaxTicking)return;parallaxTicking=true;requestAnimationFrame(()=>{updateParallax();parallaxTicking=false})}
 if(!reduceMotion){addEventListener('scroll',requestParallax,{passive:true});addEventListener('resize',requestParallax,{passive:true});updateParallax()}
 
+// Keep the editorial gallery swipeable on mobile and clearly navigable on desktop.
+const filmstrip=document.querySelector('.filmstrip');
+document.querySelectorAll('[data-gallery-direction]').forEach(button=>button.addEventListener('click',()=>{
+  const direction=Number(button.dataset.galleryDirection);
+  filmstrip.scrollBy({left:direction*filmstrip.clientWidth*.82,behavior:reduceMotion?'auto':'smooth'});
+}));
+
 // Stagger related content as each composition enters the viewport.
 document.querySelectorAll('.event-copy,.look,.party-title,.contacts article').forEach(group=>{
   Array.from(group.children).forEach((child,index)=>{child.style.setProperty('--stagger',`${Math.min(index*75,300)}ms`);child.classList.add('stagger-item')});

@@ -335,8 +335,29 @@
         <div class="moments-copy reveal">
           <p class="script">A glimpse of us</p>
           <h2>Our favourite<br />kind of magic</h2>
+          <div class="filmstrip-controls" aria-label="Gallery controls">
+            <span>Swipe or use the arrows</span>
+            <button
+              type="button"
+              data-gallery-direction="-1"
+              aria-label="Previous photo"
+            >
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              data-gallery-direction="1"
+              aria-label="Next photo"
+            >
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
-        <div class="filmstrip">
+        <div
+          class="filmstrip"
+          tabindex="0"
+          aria-label="Engagement photo gallery"
+        >
           <figure>
             <img
               src="assets/img/_MG_0110.webp"
