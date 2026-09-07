@@ -734,8 +734,15 @@ blockquote i {
 .look-orb.black {
   background: radial-gradient(circle at 30% 25%, #6b554c, #211815 60%);
 }
-.look-orb.champagne {
-  background: radial-gradient(circle at 30% 25%, #f1ddd2, #a98578 62%);
+.look-orb.brown-nude {
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 48%,
+      rgba(255, 248, 243, 0.7) 49% 51%,
+      transparent 52%
+    ),
+    radial-gradient(circle at 30% 25%, #f4e2d9 0 32%, #bd9484 58%, #765348 100%);
   box-shadow:
     inset 0 0 0 8px #ffffff40,
     0 14px 32px rgba(126, 91, 78, 0.28);
