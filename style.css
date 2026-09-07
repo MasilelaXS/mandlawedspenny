@@ -1417,6 +1417,16 @@ footer span,
   background-image: none;
   background-color: var(--black);
 }
+.quote {
+  background-image: url("assets/img/_MG_0069.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.quote > img.fixed-bg-photo {
+  display: none;
+}
 .quote > img.fixed-bg-photo,
 .rsvp > img.fixed-bg-photo {
   display: block;
@@ -1453,6 +1463,15 @@ footer span,
 .rsvp > .rsvp-intro,
 .rsvp > .contacts {
   z-index: 2;
+}
+@media (max-width: 759px) {
+  .quote {
+    background-image: none;
+    background-attachment: scroll;
+  }
+  .quote > img.fixed-bg-photo {
+    display: block;
+  }
 }
 
 /* Lucide icon sizing */
