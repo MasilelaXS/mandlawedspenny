@@ -152,6 +152,97 @@ if (!reduceMotion) {
 
 // Keep the editorial gallery swipeable on mobile and clearly navigable on desktop.
 const filmstrip = document.querySelector(".filmstrip");
+const galleryImages = [
+  ["_MG_0001.webp", "A quiet beginning"],
+  ["_MG_0003.webp", "Together in the moment"],
+  ["_MG_0008.webp", "A little more love"],
+  ["_MG_0010.webp", "The way we look at each other"],
+  ["_MG_0011.webp", "Always by your side"],
+  ["_MG_0014.webp", "A memory to keep"],
+  ["_MG_0017.webp", "Love, captured"],
+  ["_MG_0020.webp", "Our kind of magic"],
+  ["_MG_0022.webp", "Just us"],
+  ["_MG_0040.webp", "A beautiful day"],
+  ["_MG_0055.webp", "The happy couple"],
+  ["_MG_0068.webp", "A shared smile"],
+  ["_MG_0077.webp", "Forever starts here"],
+  ["_MG_0090.webp", "In this together"],
+  ["_MG_0149.webp", "Our favourite people"],
+  ["_MG_0171.webp", "A moment of joy"],
+  ["_MG_0192.webp", "With all our hearts"],
+];
+const existingGalleryImages = new Set(
+  Array.from(filmstrip.querySelectorAll("img")).map((image) => image.src),
+);
+galleryImages.forEach(([file, alt]) => {
+  const src = `assets/img/${file}`;
+  if (existingGalleryImages.has(new URL(src, document.baseURI).href)) return;
+  const figure = document.createElement("figure");
+  figure.innerHTML = `<img src="${src}" alt="${alt}" loading="lazy" />`;
+  filmstrip.append(figure);
+});
+const galleryLightbox = document.querySelector(".gallery-lightbox"),
+  galleryViewer = galleryLightbox.querySelector(".gallery-viewer img"),
+  galleryCount = galleryLightbox.querySelector(".gallery-count"),
+  galleryCaption = galleryLightbox.querySelector(".gallery-caption");
+let galleryIndex = 0,
+  galleryWasLocked = false;
+function galleryFigures() {
+  return Array.from(filmstrip.querySelectorAll("figure"));
+}
+function showGalleryImage(index) {
+  const figures = galleryFigures();
+  galleryIndex = (index + figures.length) % figures.length;
+  const image = figures[galleryIndex].querySelector("img");
+  galleryViewer.src = image.currentSrc || image.src;
+  galleryViewer.alt = image.alt;
+  galleryCount.textContent = `${String(galleryIndex + 1).padStart(2, "0")} / ${String(figures.length).padStart(2, "0")}`;
+  galleryCaption.textContent = image.alt;
+}
+function openGallery(index) {
+  galleryWasLocked = body.classList.contains("locked");
+  showGalleryImage(index);
+  galleryLightbox.hidden = false;
+  galleryLightbox.setAttribute("aria-hidden", "false");
+  body.classList.add("locked");
+  galleryLightbox.querySelector(".gallery-close").focus();
+}
+function closeGallery() {
+  galleryLightbox.hidden = true;
+  galleryLightbox.setAttribute("aria-hidden", "true");
+  galleryViewer.src = "";
+  if (!galleryWasLocked) body.classList.remove("locked");
+}
+galleryFigures().forEach((figure, index) => {
+  figure.tabIndex = 0;
+  figure.setAttribute("role", "button");
+  figure.setAttribute("aria-label", `Open photo ${index + 1}`);
+  figure.addEventListener("click", () => openGallery(index));
+  figure.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openGallery(index);
+    }
+  });
+});
+galleryLightbox
+  .querySelector(".gallery-close")
+  .addEventListener("click", closeGallery);
+galleryLightbox
+  .querySelector(".gallery-prev")
+  .addEventListener("click", () => showGalleryImage(galleryIndex - 1));
+galleryLightbox
+  .querySelector(".gallery-next")
+  .addEventListener("click", () => showGalleryImage(galleryIndex + 1));
+galleryLightbox.addEventListener("click", (event) => {
+  if (event.target === galleryLightbox) closeGallery();
+});
+addEventListener("keydown", (event) => {
+  if (galleryLightbox.hidden) return;
+  if (event.key === "Escape") closeGallery();
+  if (event.key === "ArrowLeft") showGalleryImage(galleryIndex - 1);
+  if (event.key === "ArrowRight") showGalleryImage(galleryIndex + 1);
+});
 document.querySelectorAll("[data-gallery-direction]").forEach((button) =>
   button.addEventListener("click", () => {
     const direction = Number(button.dataset.galleryDirection);
