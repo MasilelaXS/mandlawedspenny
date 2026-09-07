@@ -100,6 +100,16 @@ function positionFixedPhotos() {
   fixedPhotos.forEach((photo) => {
     const section = photo.parentElement,
       rect = section.getBoundingClientRect();
+    if (photo === quotePhoto) {
+      const visible = rect.bottom > 0 && rect.top < innerHeight;
+      photo.style.opacity = visible ? "1" : "0";
+      if (visible) {
+        const top = Math.max(0, rect.top),
+          bottom = Math.max(0, innerHeight - rect.bottom);
+        photo.style.clipPath = `inset(${top}px 0 ${bottom}px 0)`;
+      }
+      return;
+    }
     if (rect.bottom < 0 || rect.top > innerHeight) return;
     const travel = (innerHeight - rect.top) / (innerHeight + rect.height);
     photo.style.transform = `translate3d(0,${(travel - 0.5) * 16}%,0) scale(1.04)`;

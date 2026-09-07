@@ -1419,14 +1419,8 @@ footer span,
   background-color: var(--black);
 }
 .quote {
-  background-image: url("assets/img/_MG_0069.webp");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-.quote > img.fixed-bg-photo {
-  display: none;
+  background-image: none;
+  background-color: transparent;
 }
 .quote > img.fixed-bg-photo,
 .rsvp > img.fixed-bg-photo {
@@ -1441,7 +1435,15 @@ footer span,
   pointer-events: none;
 }
 .quote > img.fixed-bg-photo {
-  display: none;
+  display: block;
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  transform: none !important;
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 .rsvp > img.fixed-bg-photo {
   display: block;
@@ -1473,10 +1475,6 @@ footer span,
 @media (max-width: 759px) {
   .quote {
     background-image: none;
-    background-attachment: scroll;
-  }
-  .quote > img.fixed-bg-photo {
-    display: block;
   }
 }
 
