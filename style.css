@@ -950,38 +950,9 @@ blockquote i {
 .rsvp-intro {
   color: #a9a39a;
   max-width: 480px;
-  margin: 20px auto 45px;
-  font-size: 11px;
+  margin: 20px auto 0;
+  font-size: 12px;
   line-height: 1.8;
-}
-.contacts {
-  max-width: 750px;
-  margin: auto;
-}
-.contacts article {
-  padding: 30px 10px;
-  border-top: 1px solid #ffffff26;
-}
-.contacts span {
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 8px;
-}
-.contacts h3 {
-  font:
-    400 25px Italiana,
-    serif;
-  margin: 19px 0 5px;
-}
-.contacts a {
-  text-underline-offset: 6px;
-  font-size: 11px;
-}
-.contacts a i {
-  color: var(--gold);
-  font-style: normal;
-  margin-left: 5px;
 }
 footer {
   background: #090806;
@@ -1166,13 +1137,6 @@ footer span,
   .filmstrip figure {
     flex-basis: 30vw;
     height: 580px;
-  }
-  .contacts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .contacts article + article {
-    border-left: 1px solid #ffffff26;
   }
   .quote {
     height: 90vh;
@@ -1481,8 +1445,7 @@ footer span,
 .rsvp > .rsvp-ring,
 .rsvp > .script,
 .rsvp > h2,
-.rsvp > .rsvp-intro,
-.rsvp > .contacts {
+.rsvp > .rsvp-intro {
   z-index: 2;
 }
 @media (max-width: 759px) {
@@ -1524,14 +1487,6 @@ footer span,
   width: 15px;
   height: 15px;
   stroke-width: 1.7;
-}
-.contacts a svg {
-  width: 13px;
-  height: 13px;
-  color: var(--gold);
-  stroke-width: 1.8;
-  margin-left: 6px;
-  vertical-align: -3px;
 }
 
 /* Editorial text reveals and subtle parallax */

@@ -265,7 +265,7 @@ document.querySelectorAll("[data-gallery-direction]").forEach((button) =>
 
 // Stagger related content as each composition enters the viewport.
 document
-  .querySelectorAll(".event-copy,.look,.party-title,.contacts article")
+  .querySelectorAll(".event-copy,.look,.party-title")
   .forEach((group) => {
     Array.from(group.children).forEach((child, index) => {
       child.style.setProperty("--stagger", `${Math.min(index * 75, 300)}ms`);
